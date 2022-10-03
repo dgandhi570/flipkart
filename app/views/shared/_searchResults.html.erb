@@ -1,0 +1,20 @@
+<div style="position: absolute">
+<%if @products.count == 0 %>
+<p style="color: red">No results matches your search!!</p>
+<%else%>
+<% @products.each do |product| %>
+<%# <br> %>
+<%# <%= link_to highlight(product.name, params[:search_text]), product%>
+<div class="list-group list-group-light" >
+  <%=link_to product_path(product.id), class:"list-group-item my-1"  do %>
+  <%if product.image.attached?%>
+    <%= image_tag product.image, style: "width: 30px", class: "rounded-square"%>
+  <%else%>
+    <%= image_tag("https://www.seekpng.com/png/detail/304-3048401_product-relationship-manager-product-life-cycle-icon.png", {:style => "width:30px;", :class => "rounded-circle"}) %>
+ <%end%>
+    <%=highlight(product.name, params[:search_text])%>
+    <%end%>
+</div>
+<%end%>
+<%end%>
+</div>

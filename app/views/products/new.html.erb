@@ -1,0 +1,13 @@
+<%=turbo_frame_tag "modal" do %>
+<div data-controller="turbomodal" data-action="turbo:submit-end->turbomodal#connect">
+<h1>New product</h1>
+
+<%= render "form", product: @product %>
+
+<br>
+
+<div>
+  <%= link_to "Back to products", products_path %>
+</div>
+</div>
+<%end%>

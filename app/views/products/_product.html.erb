@@ -1,0 +1,37 @@
+<div class="row" id="<%= dom_id product %>">
+    <div class="col">
+    <%if product.image.attached? %>
+  <%= image_tag product.image, style: "width: 200px", class: "rounded-square"%>
+  <%else%>
+    <%= image_tag("https://www.seekpng.com/png/detail/304-3048401_product-relationship-manager-product-life-cycle-icon.png", {:style => "width:200px;", :class => "rounded-square"}) %>
+
+  <%end%>
+  </div>
+    <div class="col">
+ <p>
+    <strong>Name:</strong>
+    <%= product.name %>
+  </p>
+
+  <p>
+    <strong>Brand:</strong>
+    <%= product.brand %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= product.description %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= product.price %>
+  </p>
+  <p>
+  <%# <%= Turbo.visit(product, { action: "replace" }) %>
+  <%= link_to "Show this product", product %> &nbsp; &nbsp;     
+  <%= link_to "Edit this product", edit_product_path(product), data:{turbo_frame: "modal"} %> 
+  </p>
+</div>
+<hr>
+</div>

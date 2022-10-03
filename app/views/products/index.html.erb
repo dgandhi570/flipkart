@@ -1,0 +1,41 @@
+<p style="color: green"><%= notice %></p>
+<div class="container">
+<div class="row">
+<div class="col">
+<h1>Products</h1>
+</div>
+<div class="col"></div>
+<div class="col">
+<h5>Search here for products</h5>
+<%= form_with url: search_products_path, method: :post do |form|%>
+<%= form.search_field :search_text, oninput: "this.form.requestSubmit() "%>
+<%end%>
+<div id="search_results"></div>
+
+</div>
+</div>
+<br><br>
+<h3>Upload Your Products File Here </h3>
+
+<h4><a href="https://drive.google.com/uc?id=1QdAsmU3TFcd7inaxXSRwUobGsv1C4WFY&export=download" class="button">Download Sample CSV</a> </h4><br>
+<%= form_tag({:action => :import}, multipart: true) do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag( "Import" ) %>
+<% end %>
+<hr>
+
+<h6>Or Add them Manually By clicking on below link
+<br><br> <%= link_to "New product", new_product_path, data:{turbo_frame: "modal"} %></h6>
+<br>
+<hr>
+</div>
+
+
+<div id="products" class="container">
+  <% @products.each do |product| %>
+    <%= render product %>
+  <% end %>
+</div>
+
+<br>
+<hr>
