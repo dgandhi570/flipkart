@@ -1,29 +1,83 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-      </ul>
+<nav class="bg-gray-800">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <!-- Mobile menu button-->
+        <button type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <!--
+            Icon when menu is closed.
+
+            Heroicon name: outline/bars-3
+
+            Menu open: "hidden", Menu closed: "block"
+          -->
+          <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <!--
+            Icon when menu is open.
+
+            Heroicon name: outline/x-mark
+
+            Menu open: "block", Menu closed: "hidden"
+          -->
+          <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-1  sm:items-stretch sm:justify-start">
+        <div class="flex flex-shrink-0 items-center">
+          <img class="block h-8 w-auto lg:hidden" src="data:image/jpeg;base64,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" alt="Your Company">
+          <img class="hidden h-8 w-auto lg:block" src="data:image/jpeg;base64,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" alt="Your Company">
+        </div>
+        <div class="hidden sm:ml-6 sm:block">
+          <div class="flex space-x-4">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <h1 class="font-medium leading-light text-3xl text-600 text-white">Flipkart</h1>
+            <a href="/" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a>
+
+            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Products</a>
+
+            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Cart</a>
+          </div>
+        </div>
+      </div>
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+        <button type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+          <span class="sr-only">View notifications</span>
+          <!-- Heroicon name: outline/bell -->
+          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+          </svg>
+        </button>
+
+        <!-- Profile dropdown -->
+        <div class="relative ml-3">
+          <div>
+            <button type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+              <span class="sr-only">Open user menu</span>
+              <img class="h-8 w-8 rounded-full" src="https://www.citypng.com/public/uploads/preview/hd-man-user-illustration-icon-transparent-png-11640168385tqosatnrny.png" alt="">
+            </button>
+          </div>
+
+          <!--
+            Dropdown menu, show/hide based on menu state.
+
+            Entering: "transition ease-out duration-100"
+              From: "transform opacity-0 scale-95"
+              To: "transform opacity-100 scale-100"
+            Leaving: "transition ease-in duration-75"
+              From: "transform opacity-100 scale-100"
+              To: "transform opacity-0 scale-95"
+          -->
+          
+        </div>
+      </div>
     </div>
   </div>
+
+  <!-- Mobile menu, show/hide based on menu state. -->
+
 </nav>

@@ -1,11 +1,31 @@
 <p style="color: green"><%= notice %></p>
-<div class="container">
-<div class="row">
-<div class="col">
-<h1>Products</h1>
+<div class="inline-block py-4 px-8 no-underline">
+<div class="grid grid-cols-4 gap-20">
+<div class="col-span-2">
+<br>
+<h3 class="font-medium leading-tight text-xl mt-0 mb-2">Upload Your Products File Here </h3>
+<a href="https://drive.google.com/uc?id=1QdAsmU3TFcd7inaxXSRwUobGsv1C4WFY&export=download">
+<button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+  <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path href="https://drive.google.com/uc?id=1QdAsmU3TFcd7inaxXSRwUobGsv1C4WFY&export=download"/></svg>
+  <span>Download Sample CSV</span>
+</button></a> 
+<br><br>
+
+<%= form_tag({:action => :import}, multipart: true) do %>
+  <%= file_field_tag :file %>
+  <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+  <%= submit_tag("Import")%>
+</button>
+
+<% end %>
+<br><hr>
+
+<h6 class="font-medium leading-tight text-xl mt-0 mb-2" >Or Add them Manually By clicking on below link
+<br><%= link_to "New product", new_product_path, class:"underline text-blue-600 hover:text-blue-800 visited:text-purple-600", data:{turbo_frame: "modal"} %></h6>
+<br>
+<hr>
 </div>
-<div class="col"></div>
-<div class="col">
+<div class="col-end-7 col-span-2">
 <h5>Search here for products</h5>
 <%= form_with url: search_products_path, method: :post do |form|%>
 <%= form.search_field :search_text, oninput: "this.form.requestSubmit() "%>
@@ -14,27 +34,15 @@
 
 </div>
 </div>
-<br><br>
-<h3>Upload Your Products File Here </h3>
-
-<h4><a href="https://drive.google.com/uc?id=1QdAsmU3TFcd7inaxXSRwUobGsv1C4WFY&export=download" class="button">Download Sample CSV</a> </h4><br>
-<%= form_tag({:action => :import}, multipart: true) do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag( "Import" ) %>
-<% end %>
-<hr>
-
-<h6>Or Add them Manually By clicking on below link
-<br><br> <%= link_to "New product", new_product_path, data:{turbo_frame: "modal"} %></h6>
-<br>
-<hr>
-</div>
 
 
-<div id="products" class="container">
+
+
+<div id="products" class="grid grid-cols-2 gap-4">
   <% @products.each do |product| %>
     <%= render product %>
   <% end %>
+</div>
 </div>
 
 <br>
