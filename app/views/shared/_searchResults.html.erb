@@ -3,8 +3,6 @@
 <p style="color: red">No results matches your search!!</p>
 <%else%>
 <% @products.each do |product| %>
-<%# <br> %>
-<%# <%= link_to highlight(product.name, params[:search_text]), product%>
 <div class="flex flex-col pl-0 mb-0 border rounded border-gray-300 list-group-light" style="background-color:white" >
   <%=link_to product_path(product.id), class:"list-group-item my-2" do %>
   <%if product.image.attached?%>

@@ -1,0 +1,27 @@
+<div class="block py-4 px-8 no-underline">
+<br>
+
+
+Filter Products
+<button class="inline bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded my-3">
+  <%= link_to "Brady Corporation", search_index_path(:brand => "Brady Corporation")%>
+</button>
+<br>
+
+
+
+<h1 class="inline font-medium leading-tight text-xl mt-0 mb-2">Sort by:</h1>
+<button class="inline bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded my-3">
+  <%= link_to "Price(low to high)", search_index_path(:sort => "l2h")%>
+</button>
+<button class="inline bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded my-3">
+  <%= link_to "Price(high to low)", search_index_path(:sort => "h2l")%>
+</button>
+<button class="inline bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded my-3">
+  <%= link_to "Newly Launched", search_index_path(:sort => "arrival")%>
+</button>
+
+
+<br><br><hr>
+<%= render "search"%>
+</div>

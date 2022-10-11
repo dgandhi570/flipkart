@@ -26,10 +26,7 @@
 <hr>
 </div>
 <div class="col-end-7 col-span-2">
-<h5>Search here for products</h5>
-<%= form_with url: search_products_path, method: :post do |form|%>
-<%= form.search_field :search_text, oninput: "this.form.requestSubmit() "%>
-<%end%>
+<%= render partial: "layouts/searchform"%>
 <div id="search_results"></div>
 
 </div>

@@ -1,0 +1,9 @@
+<h5 class="font-medium leading-tight text-xl mt-0 mb-2">Search here for products</h5>
+<%= form_tag search_index_path , remote: true,  method: :get do%>
+<%= text_field_tag :search_text, params[:search_text]%>
+ <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+  <%= submit_tag("search")%>
+</button>
+<%end%>
+
+<%#oninput: "this.form.requestSubmit()" %>

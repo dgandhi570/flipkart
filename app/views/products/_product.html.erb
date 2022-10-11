@@ -1,4 +1,4 @@
-<div class="max-w-sm rounded overflow-hidden shadow-lg" id="<%= dom_id product %>">
+<div class="max-w-sm rounded overflow-hidden shadow-lg">
   <%if product.image.attached? %>
   <%= image_tag product.image, style: "width: 200px", class: "rounded-square"%>
   <%else%>
@@ -8,7 +8,7 @@
   <div class="px-6 py-4">
     <div class="font-bold text-xl mb-2"><%= product.brand %><%= product.name %></div>
     <p class="text-gray-700 text-base">
-      <%= product.description %>
+      <%# <%= product.description %> 
     </p>
       <p>
     <strong>Price:</strong>

@@ -1,0 +1,23 @@
+
+
+<%if @products.count == 0 %>
+    <p style="color: red">No results matches your search!!</p>
+<%else%>
+    <div id="products" class="grid grid-cols-2 gap-4">
+          <% @products.each do |product| %>
+                <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                      <%if product.image.attached? %>
+                        <%= image_tag product.image, style: "width: 200px", class: "rounded-square"%>
+                      <%else%>
+                        <%= image_tag("https://www.seekpng.com/png/detail/304-3048401_product-relationship-manager-product-life-cycle-icon.png", {:style => "width:200px;", :class => "rounded-square"}) %>
+                      <%end%>
+                      <div class="px-6 py-4">
+                          <div class="font-bold text-xl mb-2"><%=highlight(product.name, params[:search_text])%></div>
+                          <div class="text-xl mb-2">Brand: <%=product.brand%></div>
+                          <strong>Price:</strong>
+                          <%= product.price %>
+                      </div>
+                </div>
+          <%end%>
+    </div>
+<%end%>

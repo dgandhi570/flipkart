@@ -18,26 +18,26 @@
 
   <div>
     <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, style: "color: black" %>
   </div>
 
 
   <div>
     <%= form.label :brand, style: "display: block" %>
-    <%= form.text_field :brand %>
+    <%= form.text_field :brand, style: "color: black" %>
   </div>
 
   <div>
     <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+    <%= form.text_field :description, style: "color: black" %>
   </div>
 
   <div>
     <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
+    <%= form.text_field :price, style: "color: black" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div >
+    <%=form.submit class: "inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-600 my-2" %>
   </div>
 <% end %>
