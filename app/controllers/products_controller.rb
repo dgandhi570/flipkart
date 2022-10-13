@@ -72,9 +72,12 @@ class ProductsController < ApplicationController
   end
 
 def import
+  if params[:file].present?
     Product.import(params[:file])
     redirect_to products_path, notice: "Products Added Sucessfully"
-    # respond_to.turbo_stream { redirect_to root_path }
+  else
+    redirect_to products_path, hh: "Select the file first"
+  end
 end
 
 def search

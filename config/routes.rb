@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'search/index'
+  get 'search/primary'
   resources :products do
       collection { post :import
                   post :search }
