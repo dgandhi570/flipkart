@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class ProductTest < ActiveSupport::TestCase
+class SearchTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
