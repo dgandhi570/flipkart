@@ -17,9 +17,20 @@
   </head>
 
   <body>
-    <%= render "shared/navbar"%>
-  <%= Time.zone.now%>
-    <%= turbo_frame_tag :modal %>
-    <%= yield %>
+        <%= render "shared/navbar"%>
+        
+        <div class="inline-block py-4 px-8 no-underline">
+            <div class="grid grid-cols-8 gap-4">
+                 <div class="col-span-4">
+                      <%= turbo_frame_tag :modal %>
+                      <%= yield %>
+                </div>
+                <div></div>
+                <div class="col-end-7 col-span-2">
+                      <%= render partial: "layouts/searchform"%>
+                      <div id="search_results"></div>
+                </div>
+            </div>
+        </div>
   </body>
 </html>

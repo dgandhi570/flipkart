@@ -12,8 +12,22 @@ AllCops:
   SuggestExtensions: false
 Metrics/MethodLength:
   Max: 10000
-Documentation:
+Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 200
+
+AllCops:
+  SuggestExtensions: false
+
+Metrics/AbcSize:
+  Max: 50
+
+
 Gemspec/DeprecatedAttributeAssignment: # new in 1.30
   Enabled: true
 Gemspec/RequireMFA: # new in 1.23

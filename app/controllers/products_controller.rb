@@ -27,15 +27,13 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.turbo_stream do
-          render turbo_stream: turbo_stream.prepend('products', partial: 'products/product',
-                                                                locals: { product: @product })
-        end
-        format.html { redirect_to product_url(@product), notice: 'Product was successfully created.' }
-        format.json { render :show, status: :created, location: @product }
+        format.html { redirect_to product_url(@product), notice: "Post was successfully created." }
+        # format.turbo_stream do
+        #   render turbo_stream: turbo_stream.prepend('products', partial: 'products/product',
+        #                                                         locals: { product: @product })
+        # end
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -44,15 +42,14 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.turbo_stream do
-          render turbo_stream: turbo_stream.replace(@product, partial: 'products/product',
-                                                              locals: { product: @product })
-        end
-        format.html { redirect_to product_url(@product), notice: 'Product was successfully updated.' }
-        format.json { render :show, status: :ok, location: @product }
+        format.html { redirect_to product_url(@product), notice: "Post was successfully created." }
+        # format.turbo_stream do
+        #   render turbo_stream: turbo_stream.replace(@product, partial: 'products/product',
+        #                                                       locals: { product: @product })
+        # end
+
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -76,22 +73,22 @@ class ProductsController < ApplicationController
     end
   end
 
-  def search
-    @products = if params[:search_text].present?
-                  if params[:search_text] == '@'
-                    Product.all
-                  else
-                    Product.where(['name LIKE ?', "%#{params[:search_text]}%"])
-                  end
-                else
-                  []
-                end
-    respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: turbo_stream.update('search_results', partial: 'shared/searchResults')
-      end
-    end
-  end
+  # def search
+  #   @products = if params[:search_text].present?
+  #                 if params[:search_text] == '@'
+  #                   Product.all
+  #                 else
+  #                   Product.where(['name LIKE ?', "%#{params[:search_text]}%"])
+  #                 end
+  #               else
+  #                 []
+  #               end
+  #   respond_to do |format|
+  #     format.turbo_stream do
+  #       render turbo_stream: turbo_stream.update('search_results', partial: 'shared/searchResults')
+  #     end
+  #   end
+  # end
 
   private
 

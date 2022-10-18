@@ -3,6 +3,8 @@
 require 'csv'
 class Product < ApplicationRecord
   has_one_attached :image
+  validates :name, presence: true
+
   # validates :file, presence: true
 
   def self.import(file)

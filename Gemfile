@@ -13,7 +13,6 @@ gem 'sprockets-rails'
 
 # Use sqlite3 as the database for Active Record
 
-
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
 
@@ -29,6 +28,8 @@ gem 'stimulus-rails'
 gem 'ransack'
 
 gem 'rubocop'
+
+# gem 'simplecov', require: false, group: :test
 
 gem 'rubocop-rails'
 
@@ -52,11 +53,10 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
-
 group :production do
   gem 'pg', '1.3.5'
 end
-
+gem 'simplecov', require: false, group: :test
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -83,6 +83,7 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
