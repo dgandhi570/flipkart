@@ -22,7 +22,6 @@ RSpec.describe 'Products', type: :request do
   end
 
   describe 'GET /index' do
-    # pending "add some examples (or delete) #{__FILE__}"
     it 'renders a successful response' do
       product = Product.new(valid_attributes)
       product.save
@@ -50,11 +49,6 @@ RSpec.describe 'Products', type: :request do
         end.to change(Product, :count).by(1)
       end
 
-      # it 'redirects to the created product' do
-      #   product = Product.new(valid_attributes) 
-      #   get product_url(product), params: { product: valid_attributes }
-      #   expect(response).to be_successful
-      # end
     end
 
     context 'with invalid parameters' do
@@ -125,13 +119,7 @@ RSpec.describe 'Products', type: :request do
     end
   end
 
-  describe 'POST /import' do
-     it "redirects to import products path" do
-       post Product.import(file)
-      expect(response).to be_successful
-     end
-  end
-  
+
   
   describe 'DELETE /destroy' do
     it 'destroys the requested post' do

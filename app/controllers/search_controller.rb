@@ -7,13 +7,14 @@ class SearchController < ApplicationController
 
     return unless params[:sort].present? do
                     case params[:sort]
-                    when 'l2h'
+                    when 'price:low_to_high'
                       @products = @products.sort_by(&:price)
-                    when 'h2l'
+                    when 'price:high_to_low'
                       @products = @products.sort_by(&:price).reverse
-                    when 'arrival'
+                    when 'newly_added'
                       @products = @products.sort_by(&:created_at)
                     end
                   end
   end
 end
+ 

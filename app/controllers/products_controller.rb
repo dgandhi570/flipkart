@@ -19,7 +19,6 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit; end
 
-  def searchpage; end
 
   # POST /products or /products.json
   def create
@@ -27,11 +26,10 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to product_url(@product), notice: "Post was successfully created." }
-        # format.turbo_stream do
-        #   render turbo_stream: turbo_stream.prepend('products', partial: 'products/product',
-        #                                                         locals: { product: @product })
-        # end
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.prepend('products', partial: 'products/product',
+                                                                locals: { product: @product })
+        end
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -42,11 +40,10 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to product_url(@product), notice: "Post was successfully created." }
-        # format.turbo_stream do
-        #   render turbo_stream: turbo_stream.replace(@product, partial: 'products/product',
-        #                                                       locals: { product: @product })
-        # end
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace(@product, partial: 'products/product',
+                                                              locals: { product: @product })
+        end
 
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -60,7 +57,6 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -69,26 +65,9 @@ class ProductsController < ApplicationController
       Product.import(params[:file])
       redirect_to products_path, notice: 'Products Added Sucessfully'
     else
-      redirect_to products_path, hh: 'Select the file first'
+      redirect_to products_path, notice: 'Select the file first'
     end
   end
-
-  # def search
-  #   @products = if params[:search_text].present?
-  #                 if params[:search_text] == '@'
-  #                   Product.all
-  #                 else
-  #                   Product.where(['name LIKE ?', "%#{params[:search_text]}%"])
-  #                 end
-  #               else
-  #                 []
-  #               end
-  #   respond_to do |format|
-  #     format.turbo_stream do
-  #       render turbo_stream: turbo_stream.update('search_results', partial: 'shared/searchResults')
-  #     end
-  #   end
-  # end
 
   private
 
